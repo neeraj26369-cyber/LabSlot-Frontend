@@ -16,6 +16,12 @@ function App() {
   const queryPortal = new URLSearchParams(window.location.search).get("portal");
   const pathPortal = window.location.pathname.startsWith("/admin") ? "admin" : window.location.pathname.startsWith("/student") ? "student" : null;
   const portal = queryPortal || pathPortal;
+  console.log("LabSlot portal diagnostic:", {
+  pathname: window.location.pathname,
+  queryPortal,
+  pathPortal,
+  portal
+});
   const portalRole = portal === "admin" ? "ADMIN" : portal === "student" ? "STUDENT" : null;
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
